@@ -1,0 +1,43 @@
+@mixin button-style($background, $color){
+    background-color: $background;
+    color: $color;
+    &:hover {
+       background: grayscale($background);
+    }
+}
+
+.btn {
+    width: 200px;
+    padding: 10px 0;
+    background: none;
+    border: 1;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: px 10px 0px grey; /* 10px direita, 10px para baixo, 5px de desfoque, cor cinza */
+
+
+    
+&.btn-laranja {
+    @include button-style($color,white);
+}
+
+&.btn-roxo {
+    @include button-style($color1,white)
+}
+
+&.btn-amarelo {
+    @include button-style($color2,white)
+}
+
+}
+
+
+
+
+
+
+
+/* @extend serve para buscar atributos de outras classes para essa classe */
+
+
+/* o mixin tem a principal função de reutilização do codigo em outras classes */
