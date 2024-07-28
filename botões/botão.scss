@@ -1,16 +1,26 @@
-.botao {
+
+
+
+.botao, .botao2, .botao3 {
     background: none;
     padding: 4px 25px;
-    background-color: #0B877D;
-    color: white ;
+    background-color: $colorbackground;
+    color: $colortext ;
     border-radius: 8px ;
     border: 0;
-    position: relative;
-    
+    position: relative; 
+    text-align: center;
+     &:hover {
+        background-color: transparent;
+        border: 1px solid $colorbackground;
+        color: $colorbackground;
+
+        .iconehover, .iconehover2 , .iconehover3{
+            margin-left: 0;
+        }
+     }
 }
 
-.botao2, .botao3 {
-    @extend .botao
-}
-
+/* border-radius: var(--Web-border-radius-borderRadius-SM, 8px);
+border: var(--Web-border-width-borderWidth-hairline, 1px) solid var(--color-primary-primary-700, #0B877D); */
 

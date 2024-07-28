@@ -1,31 +1,47 @@
 .botao, .botao2, .botao3 {
   background: none;
   padding: 4px 25px;
-  background-color: #0B877D;
-  color: white;
+  background-color: rgb(11, 135, 125);
+  color: rgb(255, 255, 255);
   border-radius: 8px;
   border: 0;
   position: relative;
+  text-align: center;
+}
+.botao:hover, .botao2:hover, .botao3:hover {
+  background-color: transparent;
+  border: 1px solid rgb(11, 135, 125);
+  color: rgb(11, 135, 125);
+}
+.botao:hover .iconehover, .botao:hover .iconehover2, .botao:hover .iconehover3, .botao2:hover .iconehover, .botao2:hover .iconehover2, .botao2:hover .iconehover3, .botao3:hover .iconehover, .botao3:hover .iconehover2, .botao3:hover .iconehover3 {
+  margin-left: 0;
 }
 
+/* border-radius: var(--Web-border-radius-borderRadius-SM, 8px);
+border: var(--Web-border-width-borderWidth-hairline, 1px) solid var(--color-primary-primary-700, #0B877D); */
 body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px;
+  margin: 10px 10px;
   height: 100vh;
-  padding: 50px 0px;
+  padding: 0px 50px;
   position: relative;
 }
 
 .icone, .icone2, .icone3 {
   padding: 8px;
-  background-color: black;
   position: absolute;
+  left: 0px;
+  top: -1px;
 }
 
-.icone {
-  left: 20px;
+.iconehover, .iconehover2, .iconehover3 {
+  padding: 8px;
+  position: absolute;
+  left: 0px;
+  top: -1px;
+  margin-left: 100000000px;
 }
 
 /*# sourceMappingURL=style.css.map */

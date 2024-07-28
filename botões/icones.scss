@@ -1,9 +1,14 @@
 .icone, .icone2 , .icone3 {
     padding: 8px;
-    background-color: black;
     position: absolute;
+    left: 0px;
+    top: -1px;
 }
 
-.icone {
-    left: 20px;
+.iconehover, .iconehover2 , .iconehover3 {
+    padding: 8px;
+    position: absolute;
+    left: 0px;
+    top: -1px;
+    margin-left: 100000000px;
 }
