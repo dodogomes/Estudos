@@ -1,0 +1,16 @@
+.botao {
+    background: none;
+    padding: 4px 25px;
+    background-color: #0B877D;
+    color: white ;
+    border-radius: 8px ;
+    border: 0;
+    position: relative;
+    
+}
+
+.botao2, .botao3 {
+    @extend .botao
+}
+
+

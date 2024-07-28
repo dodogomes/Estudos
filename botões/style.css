@@ -1,0 +1,31 @@
+.botao, .botao2, .botao3 {
+  background: none;
+  padding: 4px 25px;
+  background-color: #0B877D;
+  color: white;
+  border-radius: 8px;
+  border: 0;
+  position: relative;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  height: 100vh;
+  padding: 50px 0px;
+  position: relative;
+}
+
+.icone, .icone2, .icone3 {
+  padding: 8px;
+  background-color: black;
+  position: absolute;
+}
+
+.icone {
+  left: 20px;
+}
+
+/*# sourceMappingURL=style.css.map */
