@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./estilo.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        function quebradelinha() {
+            return document.write("<br><br>")
+                    
+        }
+
+        function mostre(c) {
+            quebradelinha()
+            return document.write('<span style=font-size:50px;color:blue;font-weight:bold>' + c)
+        }
+
+        function calculaIMC(peso, altura){
+            var imc = peso/ (altura * altura)
+            return Math.round(imc)
+        }
+        
+        var resultadoIMC = calculaIMC(70, 1.68)
+
+        
+   
+        if (resultadoIMC < 18.5) {
+            mostre(resultadoIMC + ' Baixo peso')
+        }
+        if (resultadoIMC >= 18.5 && resultadoIMC < 25.0){
+            mostre(resultadoIMC + ' Peso ideal')
+        }
+        if (resultadoIMC >= 25.0 && resultadoIMC < 30.0){
+            mostre(resultadoIMC + ' Sobre peso')
+        }
+        if (resultadoIMC >= 30.0 && resultadoIMC < 35.0){
+            mostre(resultadoIMC +  ' Obesidade grau 1')
+        }
+        if (resultadoIMC >= 35.0 && resultadoIMC < 40.0){
+            mostre(resultadoIMC + ' Obesidade Grau 2')
+        }
+        if (resultadoIMC >= 40.0){
+            mostre(resultadoIMC + ' gordo')
+        } 
+
+        </script>
+    
+</body>
+</html>
