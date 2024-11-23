@@ -1,0 +1,27 @@
+<div *ngFor="let item of oferta">
+  {{item.id}}
+</div>
+
+
+<input [(ngModel)]="variavelFuncao">
+<button (click)="funcao5(variavelFuncao)">name</button>
+
+o valor é : {{variavelFuncao}}
+<div *ngFor="let item of ofertas">
+  {{item | json}}
+  {{item.testando}}
+  {{item.outroteste}}
+</div>
+
+<p>nosso signal {{computedExemplo()}}</p>
+<p>exemplo sinal {{exemploCount()}}</p>
+
+
+<p>show count {{showCount()}}</p>
+
+<button (click)="falso()">name</button>
+
+{{exemploBoolean()}}
+
+<button (click)="executar()">executar</button>
+
