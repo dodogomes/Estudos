@@ -1,14 +1,34 @@
-import { Component, computed, signal } from '@angular/core';
+import { AfterViewInit, Component, computed, inject, Output, Signal, signal, TemplateRef } from '@angular/core';
 import { Teste } from '../../interfaces/testeInterface';
 import { OutraInterface } from '../../interfaces/outrainterface';
-import { CommonModule } from '@angular/common';
-
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { ConteudoServiçoService } from './conteudo-serviço.service';
+import { Cep } from '../../interfaces/CEP';
+import { ToastrService } from 'ngx-toastr';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { TemplateComponent } from '../template/template.component';
+import { filter, interval, map, pipe } from 'rxjs';
+declare var bootstrap: any; // Declaração global do Bootstrap
 @Component({
   selector: 'app-conteudo',
   templateUrl: './conteudo.component.html',
   styleUrl: './conteudo.component.scss'
 })
-export class ConteudoComponent {
+export class ConteudoComponent implements AfterViewInit {
+
+  private serivco: ConteudoServiçoService = inject(ConteudoServiçoService)
+   private toastr: ToastrService = inject(ToastrService)
+
+
+  tipo: string =  ''
+  //cep!: number
+
+
+
+
+
+
+
 //SIGNALS/////////////////////
   executar(){
     // set: define o signal para um novo valor absoluto --------------------
@@ -47,7 +67,12 @@ export class ConteudoComponent {
     // Mutate: define o signal com base no valor atual sem obj total
     //this.exemploCount.mutate(atual => atual.nome = 'cris')
   }
+  protected sinal2 = signal('')
   protected exemploCount = signal(1)
+  protected atualização = signal(5)
+  protected sinal = signal(1)
+  protected observavel$  = toObservable(this.exemploCount)
+  protected paraOsignal = toSignal(this.observavel$)
   protected exemploSinal = signal('douglas')
   protected exemploBoolean = signal(true)
   protected computedExemplo = computed(() => {
@@ -60,7 +85,7 @@ export class ConteudoComponent {
   })
 
   falso(){
-     this.showCount.update(boleano => boleano = false)
+     this.showCount.update(boleano => !boleano)
   }
  protected showCount = signal(true)
 
@@ -73,8 +98,6 @@ export class ConteudoComponent {
 
   public array = signal([1])
 ////////////////////////////////////
-  constructor(){}
-
   ofertas: Teste[] = [
     {
     testando: 'cada',
@@ -93,6 +116,8 @@ export class ConteudoComponent {
           outroteste: 5
           }
   ]
+
+
 
   testeDeOferta = this.ofertas.map(({}) => ({}))
 
@@ -116,8 +141,8 @@ export class ConteudoComponent {
       }
       if(valors >= 0){
       valors + retornodoId[0].outroteste
-      console.log('transformando',transfornado);
-      console.log('valores',valors + retornodoId[0].outroteste)
+      // console.log('transformando',transfornado);
+      // console.log('valores',valors + retornodoId[0].outroteste)
       }
     }
 
@@ -162,13 +187,65 @@ funcao(value: number){
 
 valorUnico?: any
 
+cep: Cep =
+  {
+  format: 'json',
+  cep: '04814730'
+}
+
+private modal: BsModalService = inject(BsModalService)
+
+modalRef: BsModalRef = inject (BsModalRef)
+resultado = signal('')
+introduzindoValor?: string
+
+openModal(template: TemplateRef<any>) {
+   this.modalRef = this.modal.show(template);
+}
+
+setValue(){
+  if(this.introduzindoValor !== undefined){
+  this.resultado.set(this.introduzindoValor)
+  this.modal.hide()
+  }
+  else this.toastr.error('insira o valor corretamente')
+
+}
+
+
+funcaoInjecao(){
+  this.serivco.buscarApi(this.cep).subscribe({
+    next: (valor: any) =>{
+      this.toastr.success(valor.cep, 'OLH A O CEP')
+
+
+    },
+    error: (valor: any) =>{
+      this.toastr.error( valor.error.message, 'final', {
+        timeOut: 3000,
+      });
+      console.log(valor);
+
+    }
+  })
+}
+isInteger: number = 2
+isString: String = 'meunome'
 ngOnInit(): void {
-  console.log(this.variavelFuncao);
+
+  console.log('é inteiro', this.isInteger.toString());
+
+
+  console.log('Valor inicial de exemploCount:', this.exemploCount());
+  console.log('para sinal' ,this.paraOsignal());
+
+
+  // console.log(this.variavelFuncao);
 
 // console.log('ofertas = ',this.ofertas);
 // console.log('retorno oferta' , this.retornoOferta);
 // console.log('retorno teste oferta', this.testeDeOferta);
-console.log('funcao com item',this.funcao5(this.variavelFuncao));
+// console.log('funcao com item',this.funcao5(this.variavelFuncao));
 
 
 const fruits = ["Apple", "Banana", "Orange", "Mango", "Pineapple"];
@@ -251,11 +328,94 @@ const filtered= [12,5,7,130,44].filter(this.funcao)
 
 variavel?: any
 
+outrovalor: number = 2+2
+receberSinal(valor: number) {
+  if(valor === 5){
+    valor = this.outrovalor
+    console.log(valor);
+  }
+  else console.log(valor);
+
+
 
 }
 
+public mandandoSinal = signal('texto')
+
+
+introduzindoValor2: string = '';
+  lista: string[] = [];
+  modalService: BsModalService = inject(BsModalService)
+
+  constructor() {
+
+  }
+
+  openModal2(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
+  adicionarItem() {
+    if (this.introduzindoValor2.trim()) {
+      this.lista.push(this.introduzindoValor2.trim());
+      this.introduzindoValor2 = '';
+      console.log(`esta é a lista ${this.lista}`);
+
+    }
+  }
+
+  removerItem(index: number) {
+    this.lista.splice(index, 1);
+  }
 
 
 
+  ngAfterViewInit(): void {
+    const dropdownElement = document.querySelector('[data-bs-toggle="dropdown"]');
+    if (dropdownElement) {
+      new bootstrap.Dropdown(dropdownElement); // Inicializa corretamente o dropdown
+    }
+  }
+
+  abrindoModal(){
+    this.modalRef = this.modalService.show(TemplateComponent,{
+      class: 'modal-lg'
+    })
+  }
+
+ // valor2 = interval(1000).pipe(filter((value) => value % 2 === 0)) // -------------------- filter
+  valor3 = interval(1000).pipe(map((valor) => `${valor} * 2 = ${valor * 2}`))
+
+  valor4 = interval(2000).pipe(map((resultado) => `${resultado} * ${this.valor2} = ${ resultado * this.valor2}` ))
+
+  subscriberss = this.valor4.subscribe({
+    next: (valor) =>
+    {
+      console.log(valor);
+
+    }
+  })
+
+valor2: number = 30
+outrovalor5: number = 10
+  // inserindoSubscriber = this.valor2.subscribe(valor =>{
+  //   this.toastr.success(`${valor}`)
+
+  // })
 
 
+  value2: number = 0
+
+
+   number = [1,2,3]
+   doubled = this.number.map((num)=> num * 2)
+   resultado5 = this.doubled
+
+
+  arrayx = [1,2,3]
+  testeArray = pipe(map((valor: Array<any> = [1,2,3]) => valor = this.arrayx   ))
+  resultado6 = this.testeArray
+// então map faz a troca dos valores
+
+
+}

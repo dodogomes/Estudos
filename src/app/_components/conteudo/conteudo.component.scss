@@ -1,0 +1,19 @@
+.modal-body {
+  max-height: 300px;
+  overflow: none
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+

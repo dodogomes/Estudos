@@ -1,3 +1,6 @@
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
 <div *ngFor="let item of oferta">
   {{item.id}}
 </div>
@@ -12,6 +15,8 @@ o valor é : {{variavelFuncao}}
   {{item.testando}}
   {{item.outroteste}}
 </div>
+observavel: {{observavel$ | async}}
+toSignal: {{paraOsignal()}}
 
 <p>nosso signal {{computedExemplo()}}</p>
 <p>exemplo sinal {{exemploCount()}}</p>
@@ -24,4 +29,72 @@ o valor é : {{variavelFuncao}}
 {{exemploBoolean()}}
 
 <button (click)="executar()">executar</button>
+
+<button (click)="receberSinal(30)">name</button>
+
+
+<app-template [receberDados]="exemploCount()" (sinal)="receberSinal($event)">
+</app-template>
+
+<div class="d-flex mt-2 mb-2">
+  <input [(ngModel)]="resultado"  type="text">
+</div>
+
+
+<<button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h5 class="modal-title">Dropdown na Modal</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.hide()"></button>
+  </div>
+  <div class="modal-body">
+    <div class="dropdown">
+      <input type="list" data-bs-toggle="dropdown">
+      <button
+        class="btn btn-primary dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+  </div>
+</ng-template>
+
+
+
+
+<button class="btn btn-success" (click)="abrindoModal()">ABRIR MODAL</button>
+----------------
+
+
+
+
+
+<!-- FILTER
+<div class="container" *ngIf="valor2 | async as data">
+{{data}}
+</div>
+
+
+SUBSCRIBER == {{inserindoSubscriber}} -->
+
+{{valor3 | async}}
+
+valor 4 = {{valor4 | async}}
+
+
+RESULTADO =  {{valor4 | async}}
+
+
+RESULTADO5 === {{resultado5}}
+
 
