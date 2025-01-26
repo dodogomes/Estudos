@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, computed, inject, Output, Signal, signal, TemplateRef } from '@angular/core';
+import { AfterViewInit, Component, computed, inject, Output, Signal, signal, TemplateRef, WritableSignal } from '@angular/core';
 import { Teste } from '../../interfaces/testeInterface';
 import { OutraInterface } from '../../interfaces/outrainterface';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { TemplateComponent } from '../template/template.component';
 import { filter, interval, map, pipe } from 'rxjs';
+import Swal from 'sweetalert2';
 declare var bootstrap: any; // Declaração global do Bootstrap
 @Component({
   selector: 'app-conteudo',
@@ -104,22 +105,23 @@ export class ConteudoComponent implements AfterViewInit {
     outroteste: 2000
     },
     {
-      testando: 'cada',
-      outroteste: 5
+      testando: 'outro',
+      outroteste: 3
       },
       {
-        testando: 'cada',
-        outroteste: 5
+        testando: 'vaçpr',
+        outroteste: 4
         },
         {
-          testando: 'cada',
-          outroteste: 5
+          testando: 'aqui',
+          outroteste: 51
           }
   ]
 
 
 
-  testeDeOferta = this.ofertas.map(({}) => ({}))
+  testeDeOferta = this.ofertas.map(({testando}) => testando)
+
 
 
     exemplo: Array<OutraInterface> = [
@@ -180,6 +182,17 @@ export class ConteudoComponent implements AfterViewInit {
 retornoOferta = this.oferta.map(({dadosOferta}) => dadosOferta)
 
 
+ngOnInit(): void {
+  console.log('retorno oferta', this.retornoOferta[0]);
+  
+  
+  
+  
+
+}
+
+
+
 mapa = ['1.5','2.4','3.2']
 funcao(value: number){
   return value >= 10
@@ -231,100 +244,101 @@ funcaoInjecao(){
 }
 isInteger: number = 2
 isString: String = 'meunome'
-ngOnInit(): void {
+// ngOnInit(): void {
 
-  console.log('é inteiro', this.isInteger.toString());
-
-
-  console.log('Valor inicial de exemploCount:', this.exemploCount());
-  console.log('para sinal' ,this.paraOsignal());
+  
+//   // console.log('é inteiro', this.isInteger.toString());
 
 
-  // console.log(this.variavelFuncao);
-
-// console.log('ofertas = ',this.ofertas);
-// console.log('retorno oferta' , this.retornoOferta);
-// console.log('retorno teste oferta', this.testeDeOferta);
-// console.log('funcao com item',this.funcao5(this.variavelFuncao));
+//   // console.log('Valor inicial de exemploCount:', this.exemploCount());
+//   // console.log('para sinal' ,this.paraOsignal());
 
 
-const fruits = ["Apple", "Banana", "Orange", "Mango", "Pineapple"];
+//   // console.log(this.variavelFuncao);
 
-var fruits2 = fruits.slice(1)
-console.log('fruits',fruits2);
-
-const exempo: OutraInterface = {
-  id: {
-    testando: 'string',
-    outroteste: 5
-  },
-  valores: 5
-}
-
-console.log('interface com interface', exempo);
+// // console.log('ofertas = ',this.ofertas);
+// // console.log('retorno oferta' , this.retornoOferta);
+// // console.log('retorno teste oferta', this.testeDeOferta);
+// // console.log('funcao com item',this.funcao5(this.variavelFuncao));
 
 
-//console.log(this.mapa);
-  const mapa = {
+// const fruits = ["Apple", "Banana", "Orange", "Mango", "Pineapple"];
 
-    dadosOferta: this.retornoOferta[0]
-  }
+// var fruits2 = fruits.slice(1)
+// console.log('fruits',fruits2);
 
-var teste = mapa.dadosOferta
-console.log('olha o teste' ,teste);
+// const exempo: OutraInterface = {
+//   id: {
+//     testando: 'string',
+//     outroteste: 5
+//   },
+//   valores: 5
+// }
+
+// console.log('interface com interface', exempo);
 
 
+// //console.log(this.mapa);
+//   const mapa = {
 
-  const arrayLike = {
-    length: 3,
-    0: "a",
-    1: "b",
-    2: "c",
-    3: "a", // ignored by filter() since length is 3
-  };
+//     dadosOferta: this.retornoOferta[0]
+//   }
 
-  console.log('aquioh' ,Array.prototype.filter.call(this.oferta, (x) => x));
+// var teste = mapa.dadosOferta
+// console.log('olha o teste' ,teste);
 
 
 
+//   const arrayLike = {
+//     length: 3,
+//     0: "a",
+//     1: "b",
+//     2: "c",
+//     3: "a", // ignored by filter() since length is 3
+//   };
 
-const filtered= [12,5,7,130,44].filter(this.funcao)
-//console.log('filtro ' + filtered);
-
-
-
-  const mapeando = this.mapa.map((teste) => parseFloat(teste).toFixed(0))
-  // const teste2 = this.mapa.map(Number).toString()
-  const teste3 = [1,2,3,4]
-  const filteredNumbers = teste3.map((string, valores) =>{
-    if (valores <= 4){
-      return string
-    }
-    return
-  })
-  console.log('filtro de string para numeros: ' ,filteredNumbers);
-  console.log('mapeando', mapeando);
-
-  // console.log('olha o teste 2' ,teste2)
-
-  //
+//   console.log('aquioh' ,Array.prototype.filter.call(this.oferta, (x) => x));
 
 
 
 
-  this.oferta.map((argumentos) => {
-    this.variavel = argumentos.dadosOferta.ofertaValida.valorOferta
-    this.variavel = this.oferta
+// const filtered= [12,5,7,130,44].filter(this.funcao)
+// //console.log('filtro ' + filtered);
+
+
+
+//   const mapeando = this.mapa.map((teste) => parseFloat(teste).toFixed(0))
+//   const teste2 = this.mapa.map(Number).toString()
+//   const teste3 = [1,2,3,4]
+//   const filteredNumbers = teste3.map((string, valores) =>{
+//     if (valores <= 4){
+//       return string
+//     }
+//     return
+//   })
+//   console.log('filtro de string para numeros: ' ,filteredNumbers);
+//   console.log('mapeando', mapeando);
+
+//   // console.log('olha o teste 2' ,teste2)
+
+//   //
 
 
 
 
-  });
+//   this.oferta.map((argumentos) => {
+//     this.variavel = argumentos.dadosOferta.ofertaValida.valorOferta
+//     this.variavel = this.oferta
 
 
 
 
-}
+//   });
+
+
+
+
+// }
 
 variavel?: any
 
@@ -384,17 +398,17 @@ introduzindoValor2: string = '';
   }
 
  // valor2 = interval(1000).pipe(filter((value) => value % 2 === 0)) // -------------------- filter
-  valor3 = interval(1000).pipe(map((valor) => `${valor} * 2 = ${valor * 2}`))
+  // valor3 = interval(1000).pipe(map((valor) => `${valor} * 2 = ${valor * 2}`))
 
-  valor4 = interval(2000).pipe(map((resultado) => `${resultado} * ${this.valor2} = ${ resultado * this.valor2}` ))
+  // valor4 = interval(4000).pipe(map((resultado) => `${resultado} * ${this.valor2} = ${ resultado * this.valor2}` ))
 
-  subscriberss = this.valor4.subscribe({
-    next: (valor) =>
-    {
-      console.log(valor);
+  // subscriberss = this.valor4.subscribe({
+  //   next: (valor) =>
+  //   {
+  //     console.log(`valor: ${valor}`);
 
-    }
-  })
+  //   }
+  // })
 
 valor2: number = 30
 outrovalor5: number = 10
@@ -413,9 +427,40 @@ outrovalor5: number = 10
 
 
   arrayx = [1,2,3]
-  testeArray = pipe(map((valor: Array<any> = [1,2,3]) => valor = this.arrayx   ))
+  testeArray = map((valor: Array<any> = [1,2,3]) => valor = this.arrayx   )
   resultado6 = this.testeArray
 // então map faz a troca dos valores
+
+protected input = signal('')
+computado = computed(() =>{
+ return `input : ${this.valorDoInput()}`
+})
+
+valorDoInput = signal('')
+submit(){
+  if(this.input() != '')
+    Swal.fire({
+  title: `o valor inserido foi ${this.input()}`
+  }),
+  this.valorDoInput.set(this.input())
+
+else
+Swal.fire({
+  title: `vazio não é valido`,
+  text: 'insira um valor correto',
+  icon: "info"
+})
+return
+}
+
+funcaoAPIREST(){
+  this.serivco.buscarApi2().subscribe(teste =>{
+    console.log(teste);
+    
+  })
+}
+
+
 
 
 }

@@ -1,0 +1,30 @@
+
+.my-box{
+    background-color: #303030;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 80%;
+    height: 400px;
+    .meuinput{
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: white;
+        border: 1 solid black;
+        min-width: 400px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    ::-webkit-inner-spin-button{
+        -webkit-appearance: none;
+    }
+    .ancora{
+        text-decoration: none;
+        color: white;
+        &:hover{
+            color: color-mix(in srgb-linear, #303030 50%, red 80%);
+        }
+    }
+}

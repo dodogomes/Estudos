@@ -1,0 +1,32 @@
+{
+  "usuarios": [
+    {
+      "id": "d95c",
+      "nome": "Dodo",
+      "idade": 25,
+      "estado": "SP",
+      "isAdmin": false
+    },
+    {
+      "id": "d915c",
+      "nome": "Dodo",
+      "idade": 25,
+      "estado": "SP",
+      "isAdmin": false
+    },
+    {
+      "id": "d9153c",
+      "nome": "Dodo",
+      "idade": 25,
+      "estado": "SP",
+      "isAdmin": false
+    },
+    {
+      "id": "d91523c",
+      "nome": "Dodo",
+      "idade": 25,
+      "estado": "SP",
+      "isAdmin": false
+    }
+  ]
+}
