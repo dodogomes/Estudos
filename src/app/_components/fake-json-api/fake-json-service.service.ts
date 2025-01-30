@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { usuario } from './fake-json_interface';
 
 @Injectable({
@@ -68,7 +68,7 @@ export class FakeJsonServiceService {
     }
 
   //POST de usuario//
-  cadastrarUsuario(usuario: usuario){
+  cadastrarUsuario(usuario: usuario[]): Observable<usuario[]>{
     return this.httpClient.post<usuario[]>(this.api + '/' , usuario).pipe(map((result)=>{
       return result
     }))

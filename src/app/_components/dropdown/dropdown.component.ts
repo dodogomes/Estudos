@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, input, InputSignal, Signal } from '@angular/core';
 
 @Component({
-  selector: 'app-dropdown',
-  templateUrl: './dropdown.component.html',
-  styleUrl: './dropdown.component.scss'
+    selector: 'app-dropdown',
+    templateUrl: './dropdown.component.html',
+    styleUrl: './dropdown.component.scss',
+    standalone: false
 })
 export class DropdownComponent {
+  public route: InputSignal<string> = input<string>("");
+
 
 ngOnInit(){
   

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-dropdown2',
-  templateUrl: './dropdown2.component.html',
-  styleUrl: './dropdown2.component.scss'
+    selector: 'app-dropdown2',
+    templateUrl: './dropdown2.component.html',
+    styleUrl: './dropdown2.component.scss',
+    standalone: false
 })
 export class Dropdown2Component {
 

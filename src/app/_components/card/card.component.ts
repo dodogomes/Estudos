@@ -4,9 +4,10 @@ import { Observable } from 'rxjs';
 import { Pesquisa } from '../../interfaces/camisa';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.scss'
+    selector: 'app-card',
+    templateUrl: './card.component.html',
+    styleUrl: './card.component.scss',
+    standalone: false
 })
 export class CardComponent {
   pesquisaServico : ServiçoService = inject(ServiçoService)

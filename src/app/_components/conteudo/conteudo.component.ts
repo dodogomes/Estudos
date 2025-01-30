@@ -11,9 +11,10 @@ import { filter, interval, map, pipe } from 'rxjs';
 import Swal from 'sweetalert2';
 declare var bootstrap: any; // Declaração global do Bootstrap
 @Component({
-  selector: 'app-conteudo',
-  templateUrl: './conteudo.component.html',
-  styleUrl: './conteudo.component.scss'
+    selector: 'app-conteudo',
+    templateUrl: './conteudo.component.html',
+    styleUrl: './conteudo.component.scss',
+    standalone: false
 })
 export class ConteudoComponent implements AfterViewInit {
 

@@ -2,9 +2,9 @@ import { Component, EventEmitter, inject, Input, input, Output, signal } from '@
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'app-template',
-  styleUrl: './template.component.scss',
-  template: `
+    selector: 'app-template',
+    styleUrl: './template.component.scss',
+    template: `
   <div class="modal-header">
     <h5 class="modal-title">Dropdown na Modal</h5>
     <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
@@ -28,6 +28,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
     </div>
   </div>
 `,
+    standalone: false
 })
 export class TemplateComponent {
   @Input() receberDados?: any

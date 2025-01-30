@@ -11,9 +11,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-fake-json-api',
-  templateUrl: './fake-json-api.component.html',
-  styleUrl: './fake-json-api.component.scss'
+    selector: 'app-fake-json-api',
+    templateUrl: './fake-json-api.component.html',
+    styleUrl: './fake-json-api.component.scss',
+    standalone: false
 })
 export class FakeJsonAPIComponent {
   fakeJsonService: FakeJsonServiceService = inject(FakeJsonServiceService)
@@ -21,7 +22,6 @@ export class FakeJsonAPIComponent {
   rotas: Router = inject(Router)
   fb: FormBuilder = inject(FormBuilder)
   usuario = new Observable<usuario[]>(); // FORMA 2
-  httpClient: HttpClient = inject(HttpClient)
   usuarioAdmin = new Observable<usuario[]>()
   resultadoAdmin2: usuario[] = []
 
@@ -121,7 +121,6 @@ export class FakeJsonAPIComponent {
 
 
     this.fakeJsonService.obterUsuarioPorID4().subscribe(resultado => {
-      console.log('obterUsuarioId4', resultado);
     })
 
 
@@ -135,7 +134,6 @@ export class FakeJsonAPIComponent {
     // console.log(`serviço API : ${this.fakeJsonService.api + '/usuarios/'}`);
 
     this.validacaoAdmin()  
-    console.log(this.validacaoAdmin.length);
       
   }
 

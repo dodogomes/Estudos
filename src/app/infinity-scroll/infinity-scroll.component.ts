@@ -4,9 +4,10 @@ import { Observable } from 'rxjs';
 import { usuario } from '../_components/fake-json-api/fake-json_interface';
 
 @Component({
-  selector: 'app-infinity-scroll',
-  templateUrl: './infinity-scroll.component.html',
-  styleUrl: './infinity-scroll.component.scss'
+    selector: 'app-infinity-scroll',
+    templateUrl: './infinity-scroll.component.html',
+    styleUrl: './infinity-scroll.component.scss',
+    standalone: false
 })
 export class InfinityScrollComponent {
   private servico : ServicoService = inject(ServicoService)

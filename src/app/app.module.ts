@@ -27,6 +27,8 @@ import { DropdownComponent } from './_components/dropdown/dropdown.component';
 import { Dropdown2Component } from './_components/dropdown2/dropdown2.component';
 import { InfinityScrollComponent } from './infinity-scroll/infinity-scroll.component';
 import { InfiniteScrollDirective } from "ngx-infinite-scroll";
+import { BaseModalComponent } from './modulos/base-modal/base-modal.component';
+import { BaseModalEditComponent } from './modulos/base-modal/base-modal-edit/base-modal-edit.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { InfiniteScrollDirective } from "ngx-infinite-scroll";
     DropdownComponent,
     Dropdown2Component,
     InfinityScrollComponent,
+    BaseModalComponent,
+    BaseModalEditComponent,
   ],
   imports: [
     TooltipModule.forRoot(),
