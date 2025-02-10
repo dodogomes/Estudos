@@ -1,0 +1,11 @@
+@for(livro of livro() ; track livro){
+    <div class="card mb-2">
+        <div class="card-body">
+            <h5>{{livro.livroNome}}</h5>
+            <p><b>Autor:</b> {{livro.livroAutor}} <br></p>
+            <p><b>Editora:</b> {{livro.livroEditora}} <br></p>
+            <p><b>Edição:</b> {{livro.livroEdicao}} <br></p>
+            <p><b>Data:</b> {{livro.livroAnoPublicacao}} <br></p>
+        </div>
+    </div>
+}

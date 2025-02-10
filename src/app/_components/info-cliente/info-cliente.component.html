@@ -1,0 +1,24 @@
+
+    @for(cliente of cliente() ; track cliente){
+        <div class="card mb-2">
+            <div class="card-body">
+                <h5>{{cliente.cliNome}}</h5>
+                <p><b>CPF:</b> {{cliente.cliCPF}} <br></p>
+                <p><b>Endereço:</b> 
+                    {{cliente.cliEndereco + ', bairro ' + cliente.cliBairro + ', cidade ' + cliente.cliCidade + ', numero ' + cliente.cliNumero}} 
+                    <br></p>
+                    <p><b>Tel. Celular:</b> {{cliente.cliTelefoneCelular}} <br></p>
+                    <p><b>Tel. Fixo:</b> {{cliente.cliTelefoneFixo}} <br></p>
+                    <div class="text-end">
+                        @if(exibeLixeira()){
+                        <button class="btn btn-danger me-2"><i class="fa fa-trash"></i></button>
+                        }
+                        @if(exibeAdd()){
+                            <button class="btn btn-success"><i class="fa fa-plus"></i></button>
+                        }
+                    </div>
+            </div>
+        </div>
+    }
+
+
