@@ -1,22 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from '@angular/material/dialog';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { BaseUiComponent } from './_components/base-ui/base-ui.component';
+import { FooterComponent } from './_components/footer/footer.component';
+import { InfoClienteComponent } from './_components/info-cliente/info-cliente.component';
+import { InfoLivroComponent } from './_components/info-livro/info-livro.component';
+import { NavbarComponent } from './_components/navbar/navbar.component';
+import { ConsultaClientesComponent } from './_modals/consulta-clientes/consulta-clientes.component';
+import { SharedModule } from './_modules/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from './_modules/shared.module';
-import { NavbarComponent } from './_components/navbar/navbar.component';
-import { FooterComponent } from './_components/footer/footer.component';
-import { BaseUiComponent } from './_components/base-ui/base-ui.component';
-import { ClientesComponent } from './pages/clientes/clientes.component';
 import { ClienteFormsComponent } from './pages/cliente-forms/cliente-forms.component';
-import { LivroComponent } from './pages/livros/livros.component';
-import { LivroFormsComponent } from './pages/livro-forms/livro-forms.component';
+import { ClientesComponent } from './pages/clientes/clientes.component';
 import { EmprestimoComponent } from './pages/emprestimo/emprestimo.component';
-import { InfoLivroComponent } from './_components/info-livro/info-livro.component';
-import { ConsultaClientesComponent } from './_modals/consulta-clientes/consulta-clientes.component';
-import { CommonModule } from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import { InfoClienteComponent } from './_components/info-cliente/info-cliente.component'
+import { LivroFormsComponent } from './pages/livro-forms/livro-forms.component';
+import { LivroComponent } from './pages/livros/livros.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,10 @@ import { InfoClienteComponent } from './_components/info-cliente/info-cliente.co
     CommonModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync(),
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

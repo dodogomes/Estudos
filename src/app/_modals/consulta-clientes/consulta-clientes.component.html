@@ -1,5 +1,12 @@
 <div class="m-4">
-    <h4>Clientes encontrados</h4>
+    <div class="d-flex justify-content-between">
+        <h4>Clientes encontrados</h4>
+        <button (click)="bsModalService.hide()" type="button" class="btn btn-close" >
+       
+          </button>
+    </div>
+ 
+
     <hr>
     <div class="scrollable">
         <app-info-cliente [cliente]="cliente" [exibeAdd]="true" ></app-info-cliente>

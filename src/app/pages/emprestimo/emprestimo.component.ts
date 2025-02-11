@@ -6,7 +6,6 @@ import { Cliente } from '../../_models/cliente';
 @Component({
   selector: 'app-emprestimo',
   standalone: false,
-  
   templateUrl: './emprestimo.component.html',
   styleUrl: './emprestimo.component.scss'
 })
