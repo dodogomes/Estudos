@@ -1,7 +1,8 @@
 <div class="container mt-5">
-    <h2>Novo Cliente</h2>
+    <h2>{{cliente() ? 'Alterar cliente' : 'Novo cliente'}}
+    </h2>
     <hr/>
-    <form>
+    <form [formGroup]="clientForms">
         <div class="row g-3">
             <div class="col-md-4">
                 <label for="cpf" class="form-label">CPF</label>
@@ -9,7 +10,8 @@
                 type="text"
                 id="cpf"
                 class="form-control"
-                placeholder="Digite o cpf"  
+                placeholder="Digite o cpf"
+                formControlName="cliCPF"  
                 >
             </div>
             <div class="col-md-8">
@@ -19,6 +21,7 @@
                 id="nome"
                 class="form-control"
                 placeholder="Digite o nome"  
+                formControlName="cliNome"  
                 >
             </div>
             <div class="col-md-6">
@@ -27,7 +30,8 @@
                 type="text"
                 id="endereço"
                 class="form-control"
-                placeholder="Digite o endereço"  
+                placeholder="Digite o endereço" 
+                formControlName="cliEndereco"  
                 >
             </div>
             <div class="col-md-2">
@@ -36,7 +40,8 @@
                 type="text"
                 id="cidade"
                 class="form-control"
-                placeholder="Nome da cidade"  
+                placeholder="Nome da cidade"
+                formControlName="cliCidade"    
                 >
             </div>
             <div class="col-md-4">
@@ -45,16 +50,18 @@
                 type="text"
                 id="bairro"
                 class="form-control"
-                placeholder="Nome do bairro"  
+                placeholder="Nome do bairro" 
+                formControlName="cliBairro"   
                 >
             </div>
             <div class="col-md-4">
                 <label for="numero" class="form-label">Numero</label>
                 <input
-                type="number"
+                type="text"
                 id="numero"
                 class="form-control"
-                placeholder="Digite o numero"  
+                placeholder="Digite o numero"
+                formControlName="cliNumero"     
                 >
             </div>
             <div class="col-md-4">
@@ -63,7 +70,8 @@
                 type="text"
                 id="telefoneCelular"
                 class="form-control"
-                placeholder="Nome do bairro"  
+                placeholder="Nome do bairro"
+                formControlName="cliTelefoneCelular"  
                 >
             </div>
             <div class="col-md-4">
@@ -72,12 +80,14 @@
                 type="text"
                 id="bairro"
                 class="form-control"
-                placeholder="Nome do bairro"  
+                placeholder="Nome do bairro"
+                formControlName="cliTelefoneFixo"  
                 >
             </div>
         </div>
         <div class="col-md-12 mt-4">
-            <button class="btn btn-sm btn btn-success"><i class="fa fa-plus me-2"></i>Cadastrar cliente</button>
+            <button class="btn btn-success"><i class="fa fa-plus me-2"></i>{{cliente() ? 'Alterar' : 'Incluir'}}
+            </button>
         </div>
     </form>
 </div>

@@ -9,8 +9,9 @@ import { Livro } from '../../_models/livro';
   styleUrl: './info-livro.component.scss'
 })
 export class InfoLivroComponent { //MUDANÇAS PARA O SIGNALS
-
 public livro: InputSignal<Livro[]> = input.required<Livro[]>()
+public exibeLixeira : InputSignal<boolean> = input<boolean>(false)
+public exibeAdd : InputSignal<boolean> = input<boolean>(false)
 }
 
 

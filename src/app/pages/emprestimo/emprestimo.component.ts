@@ -13,6 +13,7 @@ export class EmprestimoComponent {
 
   private emprestimoFacade : EmprestimoFacade = inject(EmprestimoFacade)
   pesquisaCliente = signal<string>('')
+  pesquisaLivro = signal<string>('')
 
   cliente : Cliente[] = [
     {
@@ -55,8 +56,12 @@ export class EmprestimoComponent {
     },
   ]
 
-  openModal(){
+  openModalCliente(){
     this.emprestimoFacade.abrirConsultaCliente(this.pesquisaCliente)
+  }
+
+  openModalLivro(){
+    this.emprestimoFacade.abrirConsultaLivro(this.pesquisaLivro)
   }
 
 }

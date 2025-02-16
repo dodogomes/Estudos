@@ -1,0 +1,14 @@
+<div class="m-4">
+    <div class="d-flex justify-content-between">
+        <h4>Livros encontrados</h4>
+        <button (click)="bsModalService.hide()" type="button" class="btn btn-close" >
+       
+          </button>
+    </div>
+ 
+
+    <hr>
+    <div class="scrollable">
+        <app-info-livro [livro]="livro" [exibeAdd]="true"></app-info-livro>
+    </div>
+</div>

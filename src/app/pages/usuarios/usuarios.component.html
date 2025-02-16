@@ -1,36 +1,36 @@
 <div class="container mt-5">
-    <h2>Clientes</h2>
+    <h2>Usuários</h2>
     <hr>
-    <button (click)="newCliente()" class="btn btn-sm btn-primary"><i class="fa fa-plus pe-2"></i>Novo Cliente</button>
+    <button (click)="newUsuario()" class="btn btn-sm btn-primary"><i class="fa fa-plus pe-2"></i>Novo Usuario</button>
     <div class="table-responsive">
         <table class="table">
             <thead>
                 <tr>
                     <th></th>
-                    <th>CPF</th>
                     <th>Nome</th>
-                    <th>Tel.Celular</th>
+                    <th>E-mail</th>
+                    <th>Administrador</th>
                 </tr>
             </thead>
             <tbody>
-                @for (cliente of cliente(); track cliente) {
+                @for (usuario of usuario(); track usuario) {
                 <tr>
                     <td>
-                        <button (click)="alterarOuExcluirCliente(cliente)" class="btn btn-sm btn-primary">
+                        <button (click)="alterarOuExcluirUsuario(usuario)" class="btn btn-sm btn-primary">
                             <i class="fa fa-search"></i>
                         </button>
                     </td>
                     <td>
-                        {{cliente.cliCPF}}
+                        {{usuario.nome}}
                     </td>
                     <td>
-                        {{cliente.cliNome}}
+                        {{usuario.email}}
                     </td>
                     <td>
-                        {{cliente.cliTelefoneCelular}}
+                        {{usuario.isAdmin}}
                     </td>
                 </tr>
-                }
+            }
             </tbody>
         </table>
     </div>

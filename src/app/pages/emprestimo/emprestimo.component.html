@@ -6,18 +6,18 @@
             <h4>Selecionar o cliente</h4>
             <div class="input-group mb-3">
                 <input [(ngModel)]="pesquisaCliente" class="form-control" type="text" placeholder="pesquisar cliente">
-                <button (click)="openModal()" class="btn btn-outline-secondary"><i class="fa fa-search"></i></button>
+                <button (click)="openModalCliente()" class="btn btn-outline-secondary"><i class="fa fa-search"></i></button>
             </div>
             <app-info-cliente [cliente]="cliente" [exibeLixeira]="true" ></app-info-cliente>
         </div>
         <div class="col-md-6 mb-4">
             <h4>Selecionar livros</h4>
             <div class="input-group mb-3">
-                <input class="form-control" type="text" placeholder="pesquisar livro">
-                <button class="btn btn-outline-secondary"><i class="fa fa-search"></i></button>
+                <input [(ngModel)]="pesquisaLivro" class="form-control" type="text" placeholder="pesquisar livro">
+                <button (click)="openModalLivro()" class="btn btn-outline-secondary"><i class="fa fa-search"></i></button>
             </div>
             <div class="scrollable">
-               <app-info-livro [livro]="livros"></app-info-livro>
+               <app-info-livro [livro]="livros" [exibeLixeira]="true"></app-info-livro>
             </div>
         </div>
     </div>

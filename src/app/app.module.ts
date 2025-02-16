@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from '@angular/material/dialog';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BaseUiComponent } from './_components/base-ui/base-ui.component';
@@ -19,6 +19,10 @@ import { ClientesComponent } from './pages/clientes/clientes.component';
 import { EmprestimoComponent } from './pages/emprestimo/emprestimo.component';
 import { LivroFormsComponent } from './pages/livro-forms/livro-forms.component';
 import { LivroComponent } from './pages/livros/livros.component';
+import { ConsultaLivrosComponent } from './_modals/consulta-livros/consulta-livros.component';
+import { LoginComponent } from './pages/login/login.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { UsuarioFormsComponent } from './pages/usuario-forms/usuario-forms.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,10 @@ import { LivroComponent } from './pages/livros/livros.component';
     InfoLivroComponent,
     ConsultaClientesComponent,
     InfoClienteComponent,
+    ConsultaLivrosComponent,
+    LoginComponent,
+    UsuariosComponent,
+    UsuarioFormsComponent,
   ],
   imports: [
     SharedModule,
@@ -41,6 +49,7 @@ import { LivroComponent } from './pages/livros/livros.component';
     AppRoutingModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideAnimationsAsync(),

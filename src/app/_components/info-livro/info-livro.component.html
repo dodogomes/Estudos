@@ -1,11 +1,20 @@
 @for(livro of livro() ; track livro){
-    <div class="card mb-2">
-        <div class="card-body">
-            <h5>{{livro.livroNome}}</h5>
-            <p><b>Autor:</b> {{livro.livroAutor}} <br></p>
-            <p><b>Editora:</b> {{livro.livroEditora}} <br></p>
-            <p><b>Edição:</b> {{livro.livroEdicao}} <br></p>
-            <p><b>Data:</b> {{livro.livroAnoPublicacao}} <br></p>
+<div class="card mb-2">
+    <div class="card-body">
+        <h5>{{livro.livroNome}}</h5>
+        <p><b>Autor:</b> {{livro.livroAutor}} <br></p>
+        <p><b>Editora:</b> {{livro.livroEditora}} <br></p>
+        <p><b>Edição:</b> {{livro.livroEdicao}} <br></p>
+        <p><b>Data:</b> {{livro.livroAnoPublicacao}} <br></p>
+
+        <div class="text-end">
+            @if(exibeLixeira()){
+            <button class="btn btn-danger me-2"><i class="fa fa-trash"></i></button>
+            }
+            @if(exibeAdd()){
+            <button class="btn btn-success"><i class="fa fa-plus"></i></button>
+            }
         </div>
     </div>
+</div>
 }
